@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    visualize: "true"
+  name: spring-docker-demo-service
+  namespace: ingress-test
+spec:
+  selector:
+    app: spring-docker-demo
+  ports:
+    - name: http
+      #      protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP

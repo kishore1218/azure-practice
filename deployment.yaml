@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-docker-demo
+  namespace: ingress-test
+  labels:
+    app: spring-docker-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-docker-demo
+
+  template:
+    metadata:
+      labels:
+        app: spring-docker-demo
+    spec:
+      containers:
+        - name: spring-docker-demo
+          image: kktest1.azurecr.io/spring-demo:v10
+          ports:
+            - containerPort: 8080
